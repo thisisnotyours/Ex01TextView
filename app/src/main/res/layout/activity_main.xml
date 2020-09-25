@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>     <!-- java의 new를 대신해주는 xml, 화면에 있는 모든View들을  만듦 -->
+<!--TextView +소속,식별(보라색) +속성(하얀색)= "값"-->
+   <!-- 1. View가 꼭 가지고 있어야 할 속성
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    = wrap_content (감쌀 정도의 사이즈)
+    = match_parent (액티비티(부모?)의 (와 매치되는) 전체가로(액티비티)의 사이즈)
+    = android:layout_width="150dp" 라고 해상도 단위로 쓸 수 있음/
+    = density independence
+    = 가급적이면 px 쓰지말라(해상도 깨질 가능성이 높음)
+    = android:layout_height="match_parent" =>라고 쓰면 세로줄에 꽉차게 붙음.왜? match_parent 라서
+    = 사이즈는 세가지밖에 없음 :
+    1)wrap_content   2)match_parent    3)숫자 dp
+    (wrap_content 는 텍스트의 view(width 와 height) 사이즈(dp)만큼 감싼다
+
+    기본적으로 View들은 하나 하나씩 만들수 없기때문에 '그룹화하여 관리'한다
+    -> ViewGroup -> Layout -> LinearLayout(선형배치)    = LinearLayout 태그가 view 태크들을 감쌈
+    linearlayout을 지정했으면 방향(orientation)을 정해준다 -> horizental/ vertical
+    -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFC19E"
+    android:padding="16dp"
+    tools:context=".MainActivity">                        <!-- 여기서 LinearLayout의 parent는= MainActivity -->
+
+
+
+
+    <!-- 뷰크기, 글씨, 글씨크기, 글씨스타일, 글씨색상, 배경-->
+    <!-- 단일 View -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world!"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:textColor="#3F0099"
+        android:background="#EDA900"
+        android:padding="16dp"
+        android:layout_marginBottom="30dp"/>                      <!-- 여기서 TesxView의 parent는= LinearLayout-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="안녕하세요"
+        android:background="@drawable/koala"/>      <!-- 이미지파일1000단위 넘어가는것 가급적이면 쓰지말것 -->
+
+
+    <!-- visibility : 뷰View 가 보여지는지 설정 [visible, invisible, gone]  -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Good android"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:visibility="gone"/>
+
+    <!-- 정렬 -->
+    <!-- gravity (중력: 당겨오다)= View 안에 있는 내용물(Content)의 위치 정렬 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="gravity"
+        android:textColor="#FF0000"
+        android:textSize="30dp"
+        android:gravity="center_horizontal"
+        android:background="#FFFFFF" />
+
+
+
+
+    <!-- layout_gravity: 뷰의 위치 정렬 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nice"
+        android:background="#FFFF00"
+        android:layout_gravity="center"/>
+
+
+
+    <!--  긴글 출력 및 라인 수 제한  -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="안녕하세요. 긴 글씨의 경우 한중에 출력할 때 칸이 모자랄 수 있음. 그럼 자동 줄바꿈이 됨"
+        android:maxLines="1"
+        android:ellipsize="end"/>
+
+
+<!-- autoLink 속성 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="http://www.naver.com"
+        android:textSize="30dp"
+        android:autoLink="web"
+        android:typeface="serif"/>
+
+
+    <!-- xml 리소스(string.xml)로 텍스트 설정하기 : res폴더> vlaues폴더> string.xml파일 문자열 데이터 생성 -->
+    <!-- string.xml도 new해서 객체를 생성한 원리   -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_text"/>
+
+
+</LinearLayout>
+
+
+

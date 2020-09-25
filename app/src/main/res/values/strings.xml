@@ -1,0 +1,5 @@
+<!--똑같은 string 객체를 두개쓰면 안되니까 식별로 "my_text" 아무거나 써서 구분해준다-->
+<resources>
+    <string name="app_name">Ex01TextView</string>
+    <string name="my_text">Hello Android</string>
+</resources>
